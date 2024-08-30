@@ -1,3 +1,85 @@
+/* Container for loading GIF and text */
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Loading GIF styling and animations */
+.loading-gif {
+  width: 500px; /* Adjust size to fit beside text */
+  height: 500px;
+  border-radius: 50%;
+  animation: spin 3s linear infinite, scaleUpDown 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.5));
+  margin-right: 100px; /* Space between GIF and text */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scaleUpDown {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Analyzing text styling */
+.loading-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 36px; /* Increase font size for better visibility */
+  color: #ffffff;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Add text shadow for better contrast */
+  display: flex;
+  align-items: center;
+}
+
+/* Dots animation */
+.loading-text .dot {
+  margin-left: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ffffff; /* White dots for visibility */
+  animation: loadingDots 1s infinite;
+}
+
+.loading-text .dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.loading-text .dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-text .dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loadingDots {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Hero Section styling */
 .hero-section {
   display: flex;
   align-items: center;
@@ -11,12 +93,14 @@
   z-index: 1;
 }
 
+/* Title container styling with fade-in animation */
 .title-container {
   max-width: 700px;
   text-align: center;
   animation: fadeIn 1.5s ease-out;
 }
 
+/* Title styling and slide-in animation */
 .title {
   font-size: 70px;
   font-family: "Playfair Display", serif;
@@ -26,6 +110,7 @@
   animation: slideIn 1s ease-out;
 }
 
+/* Subtitle styling with fade-in-up animation */
 .subtitle {
   font-size: 26px;
   font-weight: 300;
@@ -39,16 +124,19 @@
   animation: fadeInUp 2s ease-out;
 }
 
+/* Caption styling */
 .caption {
   display: inline-block;
 }
 
+/* Cursor blink animation */
 .cursor {
   display: inline-block;
   opacity: 1;
   animation: blink 1s infinite;
 }
 
+/* Upload box container styling */
 .upload-box {
   display: flex;
   align-items: center;
@@ -60,6 +148,7 @@
   flex-wrap: wrap;
 }
 
+/* Custom file upload button styling */
 .custom-file-upload {
   padding: 14px 22px;
   border-radius: 50px;
@@ -75,20 +164,24 @@
   gap: 10px;
 }
 
+/* Hover effect for custom file upload button */
 .custom-file-upload:hover {
   background-color: #2c5364;
   box-shadow: 0px 10px 20px rgba(44, 83, 100, 0.3);
   transform: scale(1.05);
 }
 
+/* Font awesome icon styling in custom file upload button */
 .custom-file-upload i {
   font-size: 24px;
 }
 
+/* Hide the actual file input */
 .upload-input {
-  display: none; /* Hide the actual file input */
+  display: none;
 }
 
+/* Display the selected file name */
 .file-name {
   font-family: "Poppins", sans-serif;
   font-size: 18px;
@@ -101,29 +194,33 @@
   margin-right: 25px;
 }
 
+/* Upload button styling */
 .upload-button {
-  padding: 18px 24px; /* Increase padding to make the button larger */
+  padding: 18px 24px;
   background-color: #00b3b3;
   color: #fff;
   border: none;
-  border-radius: 50%; /* Keep the button circular */
+  border-radius: 50%;
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease,
     transform 0.3s ease;
   font-family: "Poppins", sans-serif;
-  font-size: 28px; /* Increase font size */
+  font-size: 28px;
 }
 
+/* Hover effect for upload button */
 .upload-box .upload-button:hover {
   background-color: #009999;
   box-shadow: 0px 10px 20px rgba(0, 179, 179, 0.3);
   transform: scale(1.1);
 }
 
+/* Font awesome icon styling in upload button */
 .upload-button i {
-  font-size: 30px; /* Increase icon size */
+  font-size: 30px;
 }
 
+/* Circles container for background circles */
 .circles-container {
   position: absolute;
   top: 0;
@@ -134,6 +231,7 @@
   overflow: hidden;
 }
 
+/* Circle styling and animations */
 .circle {
   pointer-events: none;
   position: absolute;
@@ -144,6 +242,7 @@
   animation: circleMove 9s infinite ease-in-out, pulse 3s infinite ease-in-out;
 }
 
+/* Positioning for left and right circles */
 .circle-left {
   top: -50px;
   left: -50px;
@@ -154,6 +253,7 @@
   right: -50px;
 }
 
+/* Animation for moving circles */
 @keyframes circleMove {
   0% {
     transform: translateY(0) translateX(0) scale(1);
@@ -166,6 +266,7 @@
   }
 }
 
+/* Pulse animation for circles */
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -178,6 +279,7 @@
   }
 }
 
+/* Cursor blink animation */
 @keyframes blink {
   0%,
   50% {
@@ -189,6 +291,7 @@
   }
 }
 
+/* Slide-in animation for title */
 @keyframes slideIn {
   from {
     transform: translateY(-50px);
@@ -200,6 +303,7 @@
   }
 }
 
+/* Fade-in animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -209,6 +313,7 @@
   }
 }
 
+/* Fade-in-up animation */
 @keyframes fadeInUp {
   from {
     transform: translateY(50px);
@@ -220,6 +325,7 @@
   }
 }
 
+/* Responsive design for medium-sized screens */
 @media (max-width: 1024px) {
   .title {
     font-size: 50px;
@@ -243,10 +349,11 @@
   .upload-button {
     font-size: 20px;
     padding: 10px 20px;
-    border-radius: 50px; /* Adjust button shape for smaller screens */
+    border-radius: 50px;
   }
 }
 
+/* Responsive design for small screens */
 @media (max-width: 768px) {
   .title {
     font-size: 36px;
@@ -267,6 +374,6 @@
   }
 
   .circles-container {
-    display: none; /* Hide circles on small screens for better visibility */
+    display: none;
   }
 }
