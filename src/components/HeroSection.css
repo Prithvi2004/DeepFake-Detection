@@ -53,41 +53,65 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 45px;
+  gap: 20px;
   animation: fadeInUp 2.5s ease-out;
   position: relative;
   z-index: 2;
+  flex-wrap: wrap;
 }
 
-.upload-input {
+.custom-file-upload {
   padding: 14px 22px;
   border-radius: 50px;
   border: 1px solid #ddd;
-  width: 350px;
   font-size: 20px;
   font-family: "Poppins", sans-serif;
-  transition: border 0.3s ease;
+  transition: border 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
   background-color: #1c3b45;
   color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.upload-input:focus {
-  border-color: #2c5364;
-  outline: none;
-  box-shadow: 0px 0px 10px rgba(44, 83, 100, 0.5);
+.custom-file-upload:hover {
+  background-color: #2c5364;
+  box-shadow: 0px 10px 20px rgba(44, 83, 100, 0.3);
+  transform: scale(1.05);
+}
+
+.custom-file-upload i {
+  font-size: 24px;
+}
+
+.upload-input {
+  display: none; /* Hide the actual file input */
+}
+
+.file-name {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  color: #fff;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-left: -10px;
+  margin-right: 25px;
 }
 
 .upload-button {
-  padding: 12px 18px;
+  padding: 18px 24px; /* Increase padding to make the button larger */
   background-color: #00b3b3;
   color: #fff;
   border: none;
-  border-radius: 50%;
+  border-radius: 50%; /* Keep the button circular */
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease,
     transform 0.3s ease;
   font-family: "Poppins", sans-serif;
-  font-size: 22px;
+  font-size: 28px; /* Increase font size */
 }
 
 .upload-box .upload-button:hover {
@@ -97,7 +121,7 @@
 }
 
 .upload-button i {
-  font-size: 24px;
+  font-size: 30px; /* Increase icon size */
 }
 
 .circles-container {
@@ -210,8 +234,8 @@
     gap: 30px;
   }
 
+  .custom-file-upload,
   .upload-input {
-    width: 100%;
     width: 100%;
     font-size: 18px;
   }
@@ -232,6 +256,7 @@
     font-size: 18px;
   }
 
+  .custom-file-upload,
   .upload-input {
     font-size: 16px;
   }
