@@ -3,41 +3,36 @@
   align-items: center;
   justify-content: center;
   padding: 50px 20px;
-  background: linear-gradient(
-    135deg,
-    #0f2027,
-    #203a43,
-    #2c5364
-  ); /* Same gradient as HeroSection */
-  width: 100%; /* Ensures full width */
-  margin: 0; /* Removes any margin */
-  border-radius: 0; /* Removes rounded corners to avoid gaps */
-  box-sizing: border-box; /* Ensures padding doesn't affect width */
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  box-sizing: border-box;
 }
 
 .text-section {
   flex: 1;
   padding-right: 30px;
-  animation: fadeInLeft 1.5s ease-out; /* Text fade-in from left */
+  animation: fadeInLeft 1.5s ease-out;
 }
 
 .image-section {
   flex: 1;
   display: flex;
   justify-content: center;
-  animation: fadeInRight 1.5s ease-out; /* Image fade-in from right */
+  animation: fadeInRight 1.5s ease-out;
 }
 
 .intro-mission-item {
   margin-bottom: 40px;
   padding-left: 10px;
-  border-left: 2px solid #00b3b3; /* Light teal border for a cohesive look */
+  border-left: 2px solid #00b3b3;
 }
 
 .section-title {
   font-size: 32px;
   font-family: "Cinzel", serif;
-  color: #ffffff; /* White text for contrast against the dark background */
+  color: #ffffff;
   margin-bottom: 15px;
 }
 
@@ -45,40 +40,47 @@
   font-size: 18px;
   font-weight: 300;
   line-height: 1.6;
-  color: #d3d3d3; /* Light gray text for better readability */
+  color: #d3d3d3;
 }
 
 .mission-image {
   max-width: 90%;
   border-radius: 10px;
-  transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out; /* Slower transition for a smooth effect */
+  transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .mission-image:hover {
-  transform: scale(1.1) rotate(3deg); /* Slight rotation and scaling for a dynamic effect */
+  transform: scale(1.1) rotate(3deg);
   box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* Keyframes for the animations */
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
+@media (max-width: 768px) {
+  .intro-mission-section {
+    flex-direction: column;
+    padding: 30px 10px;
   }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
+  .text-section,
+  .image-section {
+    flex: unset;
+    max-width: 100%;
+    padding: 0;
   }
-  to {
-    opacity: 1;
-    transform: translateX(0);
+
+  .text-section {
+    padding-bottom: 30px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .section-text {
+    font-size: 16px;
+  }
+
+  .mission-image {
+    max-width: 100%;
   }
 }

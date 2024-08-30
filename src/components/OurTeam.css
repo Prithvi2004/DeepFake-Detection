@@ -1,8 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Raleway:wght@400;700&display=swap");
-
 .our-team-section {
   position: relative;
-  padding: 120px 20px; /* Increased padding to give more space above */
+  padding: 120px 20px;
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   text-align: center;
   overflow: hidden;
@@ -13,7 +11,7 @@
   font-size: 48px;
   font-family: "Cinzel", serif;
   color: #ffffff;
-  margin-bottom: 50px; /* Increased margin to give more space below heading */
+  margin-bottom: 50px;
   position: relative;
   z-index: 2;
   animation: fadeIn 2s ease-out forwards;
@@ -26,9 +24,9 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: nowrap;
-  gap: 40px; /* Increased gap between the team members */
+  gap: 40px;
   overflow-x: auto;
-  padding-bottom: 60px; /* Extra padding to prevent hover cut-off */
+  padding-bottom: 60px;
 }
 
 .team-member {
@@ -57,7 +55,7 @@
 .team-image:hover {
   transform: scale(1.15);
   box-shadow: 0px 8px 30px rgba(0, 255, 153, 0.8),
-    0px 0px 15px rgba(0, 255, 153, 0.6); /* Add glow effect */
+    0px 0px 15px rgba(0, 255, 153, 0.6);
   border: 5px solid #00ff99;
 }
 
@@ -83,7 +81,7 @@
 .team-name:hover {
   color: #00ff99;
   cursor: grab;
-  text-shadow: 0px 0px 10px rgba(0, 255, 153, 0.8); /* Add glow effect to text */
+  text-shadow: 0px 0px 10px rgba(0, 255, 153, 0.8);
 }
 
 @keyframes fadeIn {
@@ -103,5 +101,30 @@
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .team-heading {
+    font-size: 36px;
+  }
+
+  .team-members {
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 20px;
+  }
+
+  .team-member {
+    max-width: 100%;
+  }
+
+  .team-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .team-name {
+    font-size: 16px;
   }
 }

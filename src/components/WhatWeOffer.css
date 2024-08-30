@@ -3,18 +3,14 @@
   align-items: center;
   justify-content: space-between;
   padding: 50px 20px;
-  background: linear-gradient(
-    135deg,
-    #0f2027,
-    #203a43,
-    #2c5364
-  ); /* Same gradient as HeroSection */
-  width: 100%; /* Ensures full width */
-  margin: 0; /* Removes any margin */
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  width: 100%;
+  margin: 0;
   gap: 50px;
-  box-sizing: border-box; /* Ensure padding doesn't affect full width */
-  border-radius: 0; /* Removes rounded corners */
+  box-sizing: border-box;
+  border-radius: 0;
   overflow: hidden;
+  flex-wrap: nowrap; /* Keep content beside image */
 }
 
 .offer-text-section {
@@ -22,17 +18,17 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  animation: fadeInLeft 1.5s ease-out; /* Added fade-in animation for text */
+  animation: fadeInLeft 1.5s ease-out;
 }
 
 .offer-title {
   font-size: 36px;
   font-family: "Cinzel", serif;
-  color: #ffffff; /* White text for contrast against dark background */
+  color: #ffffff;
   margin-bottom: 30px;
   position: relative;
   padding-left: 20px;
-  border-left: 3px solid #00b3b3; /* Light teal border for cohesive look */
+  border-left: 3px solid #00b3b3;
 }
 
 .offer-item {
@@ -44,7 +40,7 @@
 .offer-item h3 {
   font-size: 22px;
   font-family: "Poppins", sans-serif;
-  color: #ffffff; /* White text */
+  color: #ffffff;
   margin-bottom: 10px;
   transition: color 0.4s ease-in-out;
 }
@@ -53,7 +49,7 @@
   font-size: 16px;
   font-weight: 300;
   line-height: 1.6;
-  color: #d3d3d3; /* Light gray text for readability */
+  color: #d3d3d3;
   transition: color 0.4s ease-in-out;
 }
 
@@ -65,7 +61,7 @@
   transform: translateY(-50%);
   height: 0;
   width: 3px;
-  background-color: #00b3b3; /* Light teal color */
+  background-color: #00b3b3;
   transition: height 0.4s ease-in-out, transform 0.4s ease-in-out;
 }
 
@@ -108,67 +104,116 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeInRight 1.5s ease-out; /* Added fade-in animation for image */
+  animation: fadeInRight 1.5s ease-out;
 }
 
 .offer-image {
-  max-width: 100%;
+  width: 100%;
+  max-width: 450px; /* Limit the maximum width of the image */
   border-radius: 50%;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
 }
 
 .offer-image:hover {
-  transform: scale(1.1) rotate(3deg); /* Added slight rotation and scaling for dynamic effect */
+  transform: scale(1.1) rotate(3deg);
   box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .what-we-offer-section {
+    flex-direction: row; /* Keep content beside image */
+    gap: 30px;
+    padding: 30px 10px;
+  }
+
+  .offer-text-section {
+    gap: 20px;
+  }
+
+  .offer-title {
+    font-size: 32px;
+  }
+
+  .offer-item {
+    padding-left: 20px;
+  }
+
+  .offer-image-section {
+    justify-content: flex-start; /* Align image to the start */
+  }
+
+  .offer-image {
+    max-width: 350px; /* Scale down the image */
+  }
 }
 
 @media (max-width: 768px) {
   .what-we-offer-section {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px 10px;
   }
 
-  .offer-text-section,
-  .offer-image-section {
-    flex: unset;
-    max-width: 100%;
+  .offer-text-section {
+    gap: 15px;
   }
 
-  .offer-item {
-    padding-left: 0;
+  .offer-title {
+    font-size: 28px;
   }
 
-  .offer-item::before {
-    left: 50%;
-    top: 0;
-    width: 0;
-    height: 3px;
-    transform: translateX(-50%);
+  .offer-item h3 {
+    font-size: 20px;
   }
 
-  .offer-item:hover::before {
-    width: 100%;
-    height: 3px;
-    transform: translateX(-50%);
+  .offer-item p {
+    font-size: 14px;
   }
 
-  .offer-item::after {
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%) translateY(-25px);
-  }
-
-  .offer-item:hover::after {
-    transform: translateX(-50%) translateY(-10px);
-  }
-
-  .offer-item:hover {
-    padding-left: 0;
+  .offer-image {
+    max-width: 250px; /* Further scale down the image */
   }
 }
 
-/* Keyframes for the animations */
+@media (max-width: 480px) {
+  .what-we-offer-section {
+    flex-direction: column; /* Stack content and image on very small screens */
+    gap: 15px;
+    padding: 15px 5px;
+  }
+
+  .offer-image-section {
+    order: 1; /* Image appears above text on very small screens */
+    margin-bottom: 15px;
+  }
+
+  .offer-text-section {
+    order: 2;
+    align-items: center; /* Center align text */
+  }
+
+  .offer-title {
+    font-size: 24px;
+  }
+
+  .offer-item h3 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .offer-item p {
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .offer-image {
+    max-width: 200px; /* Scale down the image even more */
+  }
+}
+
 @keyframes fadeInLeft {
   from {
     opacity: 0;

@@ -3,18 +3,14 @@
   align-items: center;
   justify-content: space-between;
   padding: 50px 20px;
-  background: linear-gradient(
-    135deg,
-    #0f2027,
-    #203a43,
-    #2c5364
-  ); /* Same gradient as HeroSection */
-  width: 100%; /* Ensure full width */
-  margin: 0; /* Removes any margin */
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  width: 100%;
+  margin: 0;
   gap: 50px;
-  box-sizing: border-box; /* Ensure padding doesn't affect full width */
-  border-radius: 0; /* Removes rounded corners */
+  box-sizing: border-box;
+  border-radius: 0;
   overflow: hidden;
+  flex-wrap: nowrap; /* Keep content beside image */
 }
 
 .image-section {
@@ -22,18 +18,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeInLeft 1.5s ease-out; /* Added fade-in animation for image */
+  animation: fadeInLeft 1.5s ease-out;
+  max-width: 100%; /* Ensure image fits within its container */
 }
 
 .deepfake-image {
-  max-width: 100%;
+  width: 100%;
+  max-width: 500px; /* Limit the maximum width of the image */
   border-radius: 10px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
 }
 
 .deepfake-image:hover {
-  transform: scale(1.1) rotate(3deg); /* Added slight rotation and scaling for dynamic effect */
+  transform: scale(1.1) rotate(3deg);
   box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
 }
 
@@ -42,7 +40,7 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  animation: fadeInRight 1.5s ease-out; /* Added fade-in animation for text */
+  animation: fadeInRight 1.5s ease-out;
 }
 
 .case-item {
@@ -56,7 +54,7 @@
 .case-item h3 {
   font-size: 24px;
   font-family: "Poppins", sans-serif;
-  color: #ffffff; /* White text for contrast against dark background */
+  color: #ffffff;
   margin-bottom: 10px;
   transition: color 0.4s ease-in-out;
 }
@@ -65,7 +63,7 @@
   font-size: 16px;
   font-weight: 300;
   line-height: 1.6;
-  color: #d3d3d3; /* Light gray text for readability */
+  color: #d3d3d3;
   transition: color 0.4s ease-in-out;
 }
 
@@ -77,7 +75,7 @@
   transform: translateY(-50%);
   height: 0;
   width: 3px;
-  background-color: #00b3b3; /* Light teal color */
+  background-color: #00b3b3;
   transition: height 0.4s ease-in-out, transform 0.4s ease-in-out;
 }
 
@@ -115,53 +113,120 @@
   opacity: 1;
 }
 
-@media (max-width: 768px) {
+/* Responsive Design */
+@media (max-width: 1024px) {
   .deepfake-cases-section {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row; /* Keep row layout */
+    padding: 30px 10px;
+    gap: 20px;
   }
 
-  .image-section,
+  .image-section {
+    flex: 1;
+    justify-content: flex-start; /* Align image to the start */
+  }
+
+  .deepfake-image {
+    max-width: 400px; /* Scale down the image */
+  }
+
   .text-section {
-    flex: unset;
-    max-width: 100%;
-    padding: 0;
+    flex: 1.2;
+    gap: 20px;
+  }
+
+  .case-item {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .deepfake-cases-section {
+    flex-direction: column; /* Stack the image and text */
+    align-items: center;
+    padding: 20px 10px;
+    gap: 20px;
+  }
+
+  .image-section {
+    order: 1; /* Image appears above text on smaller screens */
+    justify-content: center;
+  }
+
+  .deepfake-image {
+    max-width: 300px; /* Further scale down the image */
+    margin-bottom: 20px;
+  }
+
+  .text-section {
+    order: 2;
+    align-items: center; /* Center text content */
+    gap: 15px;
   }
 
   .case-item {
     padding-left: 0;
   }
 
+  .case-item:hover {
+    padding-left: 0;
+  }
+
   .case-item::before {
+    height: 0;
+    width: 10px;
     left: 50%;
-    top: 0;
-    width: 0;
-    height: 3px;
     transform: translateX(-50%);
   }
 
   .case-item:hover::before {
-    width: 100%;
     height: 3px;
-    transform: translateX(-50%);
+    width: 100%;
   }
 
   .case-item::after {
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%) translateY(-25px);
+    display: none;
   }
 
-  .case-item:hover::after {
-    transform: translateX(-50%) translateY(-10px);
+  .case-item h3 {
+    font-size: 20px;
+    text-align: center;
   }
 
-  .case-item:hover {
-    padding-left: 0;
+  .case-item p {
+    font-size: 14px;
+    text-align: center;
   }
 }
 
-/* Keyframes for the animations */
+@media (max-width: 480px) {
+  .deepfake-cases-section {
+    padding: 15px 5px;
+  }
+
+  .image-section {
+    margin-bottom: 15px;
+  }
+
+  .deepfake-image {
+    max-width: 250px; /* Scale down the image even more */
+  }
+
+  .case-item h3 {
+    font-size: 18px;
+  }
+
+  .case-item p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .case-item::before {
+    width: 5px;
+    height: 2px;
+  }
+}
+
 @keyframes fadeInLeft {
   from {
     opacity: 0;

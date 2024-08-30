@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Playfair+Display:wght@700&display=swap");
-
 .hero-section {
   display: flex;
   align-items: center;
@@ -31,14 +29,14 @@
 .subtitle {
   font-size: 26px;
   font-weight: 300;
-  margin: 20px 0 50px; /* Increased gap between subtitle and upload box */
+  margin: 20px 0 50px;
   color: #fff;
   font-family: "Roboto Mono", monospace;
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid rgba(255, 255, 255, 0.75);
   display: inline-block;
-  animation: fadeInUp 2s ease-out; /* Added animation to subtitle */
+  animation: fadeInUp 2s ease-out;
 }
 
 .caption {
@@ -55,18 +53,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 45px; /* Increased gap between input and button */
+  gap: 45px;
   animation: fadeInUp 2.5s ease-out;
   position: relative;
-  z-index: 2; /* Ensure upload section is above the circles */
+  z-index: 2;
 }
 
 .upload-input {
   padding: 14px 22px;
   border-radius: 50px;
   border: 1px solid #ddd;
-  width: 350px; /* Increased width for better visibility */
-  font-size: 20px; /* Increased font size */
+  width: 350px;
+  font-size: 20px;
   font-family: "Poppins", sans-serif;
   transition: border 0.3s ease;
   background-color: #1c3b45;
@@ -81,7 +79,7 @@
 
 .upload-button {
   padding: 12px 18px;
-  background-color: #00b3b3; /* Light Teal/Cyan */
+  background-color: #00b3b3;
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -108,7 +106,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0; /* Lower z-index to push it behind the upload section */
+  z-index: 0;
   overflow: hidden;
 }
 
@@ -195,5 +193,55 @@
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 50px;
+  }
+
+  .subtitle {
+    font-size: 22px;
+  }
+
+  .upload-box {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .upload-input {
+    width: 100%;
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .upload-button {
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 50px; /* Adjust button shape for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .upload-input {
+    font-size: 16px;
+  }
+
+  .upload-button {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+
+  .circles-container {
+    display: none; /* Hide circles on small screens for better visibility */
   }
 }

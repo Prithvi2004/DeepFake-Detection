@@ -1,31 +1,26 @@
 .stats-section {
   display: flex;
   justify-content: space-around;
-  padding: 60px 20px; /* Ensure full-width padding */
-  background: linear-gradient(
-    135deg,
-    #0f2027,
-    #203a43,
-    #2c5364
-  ); /* Same gradient as HeroSection */
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   animation: fadeInUp 1.5s ease;
   gap: 30px;
   margin: 0;
-  width: 100%; /* Ensure full width */
-  box-sizing: border-box; /* Ensure padding doesn't affect width */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .stat {
   text-align: center;
   max-width: 300px;
   padding: 20px;
-  background-color: #ffffff; /* White background for contrast */
+  background-color: #ffffff;
   border-radius: 15px;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   position: relative;
   overflow: hidden;
-  animation: bounceIn 0.8s ease; /* Added bounce-in animation */
+  animation: bounceIn 0.8s ease;
 }
 
 .stat:hover {
@@ -37,9 +32,9 @@
   font-size: 50px;
   margin-bottom: 20px;
   display: block;
-  color: #00b3b3; /* Light teal/cyan to match upload button */
+  color: #00b3b3;
   transition: color 0.3s ease, transform 0.3s ease;
-  animation: iconFadeIn 1s ease; /* Added icon fade-in animation */
+  animation: iconFadeIn 1s ease;
 }
 
 .stat:hover .icon {
@@ -107,5 +102,26 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 10px;
+  }
+
+  .stat {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .icon {
+    font-size: 40px;
+  }
+
+  .stat p {
+    font-size: 14px;
   }
 }
