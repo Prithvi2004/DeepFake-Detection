@@ -1,0 +1,185 @@
+.deepfake-cases-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 20px;
+  background: linear-gradient(
+    135deg,
+    #0f2027,
+    #203a43,
+    #2c5364
+  ); /* Same gradient as HeroSection */
+  width: 100%; /* Ensure full width */
+  margin: 0; /* Removes any margin */
+  gap: 50px;
+  box-sizing: border-box; /* Ensure padding doesn't affect full width */
+  border-radius: 0; /* Removes rounded corners */
+  overflow: hidden;
+}
+
+.image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInLeft 1.5s ease-out; /* Added fade-in animation for image */
+}
+
+.deepfake-image {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+}
+
+.deepfake-image:hover {
+  transform: scale(1.1) rotate(3deg); /* Added slight rotation and scaling for dynamic effect */
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.text-section {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  animation: fadeInRight 1.5s ease-out; /* Added fade-in animation for text */
+}
+
+.case-item {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  padding-left: 40px;
+  transition: all 0.4s ease-in-out;
+}
+
+.case-item h3 {
+  font-size: 24px;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff; /* White text for contrast against dark background */
+  margin-bottom: 10px;
+  transition: color 0.4s ease-in-out;
+}
+
+.case-item p {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #d3d3d3; /* Light gray text for readability */
+  transition: color 0.4s ease-in-out;
+}
+
+.case-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 0;
+  width: 3px;
+  background-color: #00b3b3; /* Light teal color */
+  transition: height 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.case-item:hover::before {
+  height: 100%;
+  transform: translateY(-50%);
+}
+
+.case-item:hover h3 {
+  color: #00b3b3;
+}
+
+.case-item:hover p {
+  color: #ffffff;
+}
+
+.case-item:hover {
+  padding-left: 50px;
+}
+
+.case-item::after {
+  content: "\00bb";
+  font-size: 36px;
+  color: #00b3b3;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateX(-50px) translateY(-50%);
+  opacity: 0;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+.case-item:hover::after {
+  transform: translateX(-25px) translateY(-50%);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .deepfake-cases-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image-section,
+  .text-section {
+    flex: unset;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .case-item {
+    padding-left: 0;
+  }
+
+  .case-item::before {
+    left: 50%;
+    top: 0;
+    width: 0;
+    height: 3px;
+    transform: translateX(-50%);
+  }
+
+  .case-item:hover::before {
+    width: 100%;
+    height: 3px;
+    transform: translateX(-50%);
+  }
+
+  .case-item::after {
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%) translateY(-25px);
+  }
+
+  .case-item:hover::after {
+    transform: translateX(-50%) translateY(-10px);
+  }
+
+  .case-item:hover {
+    padding-left: 0;
+  }
+}
+
+/* Keyframes for the animations */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

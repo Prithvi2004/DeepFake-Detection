@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Raleway:wght@400;700&display=swap");
+
+.our-team-section {
+  position: relative;
+  padding: 120px 20px; /* Increased padding to give more space above */
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  text-align: center;
+  overflow: hidden;
+}
+
+.team-heading {
+  margin-top: -50px;
+  font-size: 48px;
+  font-family: "Cinzel", serif;
+  color: #ffffff;
+  margin-bottom: 50px; /* Increased margin to give more space below heading */
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 2s ease-out forwards;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.team-members {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 40px; /* Increased gap between the team members */
+  overflow-x: auto;
+  padding-bottom: 60px; /* Extra padding to prevent hover cut-off */
+}
+
+.team-member {
+  margin-top: 40px;
+  text-align: center;
+  transform: translateY(30px);
+  opacity: 0;
+  animation: fadeUp 2s ease forwards;
+  position: relative;
+  flex: 1 1 180px;
+  max-width: 180px;
+}
+
+.team-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out,
+    border 0.4s ease-in-out;
+  border: 5px solid transparent;
+  margin-bottom: 15px;
+}
+
+.team-image:hover {
+  transform: scale(1.15);
+  box-shadow: 0px 8px 30px rgba(0, 255, 153, 0.8),
+    0px 0px 15px rgba(0, 255, 153, 0.6); /* Add glow effect */
+  border: 5px solid #00ff99;
+}
+
+.team-image:hover + .team-name {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.team-name {
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  margin-top: 15px;
+  letter-spacing: 1.5px;
+  text-transform: capitalize;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 1.5s ease forwards;
+  animation-delay: 0.5s;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.team-name:hover {
+  color: #00ff99;
+  cursor: grab;
+  text-shadow: 0px 0px 10px rgba(0, 255, 153, 0.8); /* Add glow effect to text */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
